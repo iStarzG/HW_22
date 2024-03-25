@@ -19,7 +19,7 @@ public class TestBaseAPI {
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com";
         RestAssured.baseURI = "https://demoqa.com";
-        Configuration.holdBrowserOpen = true;
+       // Configuration.holdBrowserOpen = true;
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
         Configuration.browser = driverConfig.browserName();
         Configuration.browserVersion = driverConfig.browserVersion();
