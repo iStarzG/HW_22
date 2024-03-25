@@ -15,6 +15,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class TestBaseAPI {
     @BeforeAll
     static void setup() {
+        System.setProperty("driver", System.getProperty("driver", "remote"));
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com";
         RestAssured.baseURI = "https://demoqa.com";
