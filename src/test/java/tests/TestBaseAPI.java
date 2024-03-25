@@ -1,7 +1,10 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import config.DriverConfig;
+import helpers.Attach;
 import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
@@ -33,12 +36,18 @@ public class TestBaseAPI {
                     "enableVideo", true
             ));
             Configuration.browserCapabilities = capabilities;
+
         }
     }
 
     @AfterEach
     void tearDown() {
-          closeWebDriver();
+        Attach.screenshotAs();
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
+        Selenide.closeWebDriver();
+        closeWebDriver();
     }
 }
 
